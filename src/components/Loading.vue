@@ -1,0 +1,117 @@
+<template>
+<div class="container">
+        <svg class="pokeball" width="0" height="0" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="53" cy="53" r="51" fill="white" stroke="#333333" stroke-width="4"/>
+            <mask id="mask0_13_71" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="106" height="53">
+            <rect width="106" height="53" fill="#C4C4C4"/>
+            </mask>
+            <g mask="url(#mask0_13_71)">
+            <circle cx="53" cy="53" r="51" fill="#F22539" stroke="#333333" stroke-width="4"/>
+            </g>
+            <path d="M0.392578 53H105.607" stroke="#333333" stroke-width="4"/>
+            <circle cx="53" cy="52.9998" r="20.8074" fill="white"/>
+            <circle cx="53" cy="52.9998" r="18.8074"  stroke="#333333" stroke-width="4"/>
+            <path d="M91.731 36.7077C86.9398 25.3318 77.283 16.5081 65.3667 12.8428" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle class="smallbtn" cx="52.9999" cy="53.0004" r="10.3852" stroke="#808080" stroke-width="2"/>
+            </svg>
+            <div class="shadow"> 
+
+            </div>
+        </div> 
+</template>
+
+<style>
+.container {
+  margin-top:200px;
+  text-align: center;
+  width:100%;
+}
+
+            .pokeball{
+                position: relative;
+                width:200px !important;
+                height:200px !important;
+                animation: bounce 2.5s ease-in-out , shake 5s  infinite;
+            }
+            .smallbtn{
+                fill: #e74c3c;
+                animation: blink 5s alternate infinite;
+            }
+            .shadow{
+                width:200px;
+                margin:auto;
+                height:5px;
+                border-radius: 100%;
+                background-color: black;
+                filter: blur(3px);
+                animation: shadow 2.5s ease-in-out;
+                animation-fill-mode: both;
+                animation-direction: alternate;
+            }
+            @keyframes blink {
+                0%  { fill: #ffffff; background-color: #fff}
+                70%  { fill: #e74c3c; background-color: #000}
+                90%  { fill: #F22539; background-color: #000}
+              }
+
+              @keyframes rotate {
+                100% {
+                  -webkit-transform: rotateZ(360deg);
+                  -ms-transform: rotateZ(360deg);
+                  -o-transform: rotateZ(360deg);
+                  transform: rotateZ(360deg);
+                }
+              }
+
+              @keyframes shake {
+                0% { transform: translate(0, 0) rotate(0);}
+                /*20% { transform: translate(-10px, 0) rotate(-20deg); }*/
+                25% { transform: translate(10px, 0) rotate(20deg); }
+                50% { transform: translate(-10px, 0) rotate(-10deg); }
+                75% { transform: translate(10px, 0) rotate(10deg); }
+                90% { transform: translate(0, 0) rotate(300deg);}
+              }
+
+              @keyframes bounce {
+                0% { top: -200px;}
+                10% { top: 0px;}
+                20% { top: -120px;}
+                30% { top: 0px;}
+                40% { top: -80px;}
+                50% { top: 0px;}
+                60% { top: -50px;}
+                70% { top: 0 }
+                80% { top: -25px }
+                90% { top: 0 }
+                95% { top: -5 }
+                100% { top: 0 }
+              }
+
+
+              @keyframes shadow {
+                0% { opacity: .5;transform: scale(100%);}
+                10% { opacity: 0;transform: scale(0) }
+                20% { opacity: .5;transform: scale(80%) }
+                30% { opacity: 0;transform: scale(0);}
+                40% { opacity: .5;transform: scale(60%) }
+                50% { opacity: 0;transform: scale(0);}
+                60% { opacity: .5;transform: scale(40%) }
+                70% { opacity: 0;transform: scale(0); }
+                80% { opacity: .5;transform: scale(30%)  }
+                90% { opacity: 0;transform: scale(0);}
+                95% { opacity: 0;transform: scale(0)  }
+                100% {opacity: 0;transform: scale(0); }
+              }
+
+
+
+@media (min-width: 1024px) {
+
+  
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
