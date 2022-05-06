@@ -42,11 +42,13 @@ export default defineComponent ({
           var obj = {
               'name': item.name,
               'url': item.url,
-              'fav': !item.fav
+              'fav': !item.fav,
+              '_index': item._index
           }
           console.log(obj);
           this.store.data.splice(item.index, 1, obj);
           this.filtered_dat.splice(index, 1)
+          
           console.log(this.filtered_dat.length);
           if (this.filtered_dat.length == 0) 
               this.has_favs=false;
@@ -62,7 +64,7 @@ export default defineComponent ({
 </script>
 
 <template>
-
+<div>
      <ul v-if="has_favs" class="list-container">
        <template v-for="(item,index) in filtered_dat" :key="item.name">
            <li><span>{{item.name}} </span> <div class="starcircle" v-on:click="unmark($event, item, index)">
@@ -76,6 +78,9 @@ export default defineComponent ({
             <span class="t1"> ¡Uh-oh!</span>
             <span class="t2"> ¡aún no has agregado favoritos!</span>
     </div>
-
+    
 <Footer/>
+</div>
+
+
 </template>

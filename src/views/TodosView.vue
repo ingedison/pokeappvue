@@ -59,7 +59,7 @@ var _data = [];
 Array.prototype.push.apply(_data, data);
   for (var i=0; i<_data.length; i++){
         console.log(_data[i].name);
-           instance.store.data.push({'name':data[i].name, 'url': data[i].url, 'fav':false})
+           instance.store.data.push({'name':data[i].name, 'url': data[i].url, 'fav':false, '_index':i})
       }
 
     console.log(instance.store.data);
@@ -88,7 +88,7 @@ Array.prototype.push.apply(_data, data);
     opacity: 1;
   }
   .fade-enter-active {
-    transition: all 4s ease;
+    transition: all 1s ease;
   }
   .fade-leave-from {
     opacity: 1;
@@ -97,6 +97,6 @@ Array.prototype.push.apply(_data, data);
     opacity: 0;
   }
   .fade-leave-active {
-    transition: all 4s ease;
+    transition: all 1s ease;
   }
 </style>

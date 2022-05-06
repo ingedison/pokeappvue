@@ -1,10 +1,14 @@
 import { defineStore } from "pinia";
+import {ref, computed, watch} from "vue"
+import { useStorage } from "@vueuse/core"
 
 export const dataStore = defineStore({
   id: "data",
   state: () => ({
-    data: [],
-  }),
+    data: useStorage('data', []).value,
+    persist: useStorage('persisr', "true"),
+  }
+  ),
   getters: {
     //doubleCount: (state) => state.counter * 2,
     //setdata: (array) => array.data
@@ -18,4 +22,14 @@ export const dataStore = defineStore({
       this.counter++;
     },*/
   },
+  persist:{    key: 'data',
+  storage: window.sessionStorage,
+  paths: ['nested.data'],
+  beforeRestore: context => {
+    console.log('Before hydration...')
+  },
+  afterRestore: context => {
+    console.log('After hydration...')
+  }
+},
 });

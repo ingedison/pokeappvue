@@ -121,6 +121,7 @@ height:60px;
 background: #FFFFFF;
 border-radius: 5px;
 margin-top:10px;
+margin-left: -40px;
 }
 .list-container span{
 position: absolute;
