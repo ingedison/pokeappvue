@@ -1,4 +1,4 @@
- <script setup lang="es">
+ <script>
 import {defineComponent, reactive, computed, watch, ref }  from "vue";
 
 export default defineComponent({

@@ -1,4 +1,4 @@
-<script setup lang="es">
+<script>
 import { dataStore } from '@/stores/data'
 import {defineComponent} from 'vue'
 import StarIcon from "./icons/IconStarOff.vue"

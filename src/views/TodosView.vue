@@ -1,4 +1,4 @@
-<script setup lang="es">
+<script>
 import Loading from "@/components/Loading.vue";
 import Todos from "@/components/Todos.vue";
 import { ref } from 'vue';

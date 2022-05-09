@@ -1,4 +1,4 @@
-<script setup lang="es">
+<script>
 import Favoritos from "@/components/Favoritos.vue";
 import {defineComponent} from 'vue';
 

@@ -31,7 +31,6 @@ box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.05);
 text-align: center;
 }
 .container-btn{
-    width:50%;
     margin:auto;
 }
 </style>
