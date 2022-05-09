@@ -1,4 +1,4 @@
-<script la>
+<script>
 import {defineComponent} from 'vue'
 
 export default defineComponent({
@@ -14,8 +14,6 @@ export default defineComponent({
       return {
           fav: false,
           showmodal:true,
-          pokename:'',
-          
           pokename:'',
           pokepeso:'',
           pokealtura:'',
@@ -39,6 +37,12 @@ export default defineComponent({
   methods: {
       closemodal: function(){
           this.$.appContext.app.unmount();
+      },
+      copyclipboard: function(){
+let text = "Pokemon: "+this.pokename +", peso:"+this.pokepeso+", altura: "+this.pokealtura+" tipos: "+this.Poketipos;
+
+            navigator.clipboard.writeText(text);
+
       }
   }
 });
@@ -84,7 +88,7 @@ function loadfunc(instance, data){
 
             </div>
             <footer>
-                    <button type="button" class="btn-medium btn-share">
+                    <button  v-on:click="copyclipboard()" type="button" class="btn-medium btn-share">
                             Share to my friends
                     </button>
                     <svg :class="[fav == true ? 'stariconOn' : 'stariconOff', 'staricon']" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

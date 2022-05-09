@@ -2,30 +2,48 @@
 import Loading from "@/components/Loading.vue";
 import Todos from "@/components/Todos.vue";
 import { ref } from 'vue';
-import {defineComponent} from 'vue'
+import {defineComponent,watch} from 'vue'
 import { dataStore } from '@/stores/data'
-
+import {fetchapi} from '../logic/data'
 export default defineComponent ({
   components: {Loading, Todos},
   data: function () {
       return {
-          showLoading: true,
+          /*showLoading: true,
           showlist:false,
-          api_data: {},
-          store: dataStore
+          api_data: {},*/
+          
       }
   },
 
   setup() {
      /*const showLoading= true
      return {showLoading}*/
-     const api_dat=[]
-     return{api_dat}
+     //const gstore = ref(dataStore())
+     const {store,showLoading,showlist} = fetchapi();
+     const api_dat=[];
+    /* watch(store, (currentValue, oldValue) => {
+       
+       if (currentValue != undefined) {
+         console.log("wololo");
+            gstore.data = Array.from(currentValue);
+            console.log(currentValue);
+       }
+
+          });
+*/
+     return{store,showLoading,showlist,api_dat}
   },
   methods: {
 
   },
-  mounted(){
+  watch:{
+      store(a, b) {
+        console.log("");
+
+      }
+  }
+  /*mounted(){
     var self = this;
     console.log(self.store.data);
     
@@ -48,13 +66,11 @@ export default defineComponent ({
         self.showlist = true;
         console.log("se ejecutó 2"+self.showLoading );
       }, 5000);
-    }
-
-      
-  }
+    } 
+  }*/
 });
 
-function loadfunc(data, instance){
+/*function loadfunc(data, instance){
 var _data = [];
 Array.prototype.push.apply(_data, data);
   for (var i=0; i<_data.length; i++){
@@ -64,7 +80,7 @@ Array.prototype.push.apply(_data, data);
 
     console.log(instance.store.data);
 
-}
+}*/
 
 </script>
 

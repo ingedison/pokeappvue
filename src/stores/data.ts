@@ -5,14 +5,16 @@ import { useStorage } from "@vueuse/core"
 export const dataStore = defineStore({
   id: "data",
   state: () => ({
-    data: useStorage('data', []).value,
-    persist: useStorage('persisr', "true"),
+    data: ref('', []).value,
+    teststring: ref('mo+rena'),
+    persist: useStorage('persist', "true"),
   }
   ),
   getters: {
     //doubleCount: (state) => state.counter * 2,
     //setdata: (array) => array.data
-    getData: (state) => {state.data}
+    getData: (state) => {state.data},
+    getTestString: (state) => {state.teststring}
   },
   actions: {
       fill(array){
