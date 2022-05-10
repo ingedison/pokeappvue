@@ -1,59 +1,45 @@
-# pokemon-app
+# Proyecto de prueba pokemon vue app
 
-This template should help get you started developing with Vue 3 in Vite.
+A continuación se detalla el procedimiento para desacargar el instalar el proyecto con sus dependencias:
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+##### Instalación de dependencias
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+#####Compilar para desarrollo
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+#####Compilar para producción
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+##### Ejecutar pruebas unitarias con [Vitest](https://vitest.dev/)
 
 ```sh
 npm run test:unit
 ```
+---
+### Estructura del proyecto
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+    .
+    ├── src
+	│   ├── components #incluye la definición de los componentes que se utilzan de manera dinámica durante su ejecución
+	│   │   ├──Favoritos.vue
+	│   │   ├──search.vue
+	│   │   ├──footer.vue
+	│   │   ├──loading.vue
+		 │   ├── icons #carpeta de iconos para menus en formato svg
+    ├── logic # incluye los archivos .js con la definición de la lógica del comportamiento de cada uno de los componentes así como funciones que se reutilizarán a lo largo del ciclo de vida de la aplicación
+    │   ├── data.js          # Load and stress tests
+    │   ├── search.js         # End-to-end, integration tests (alternatively `e2e`)
+    │   └── modal.js                # Unit tests
+    └── ...
 
-```sh
-npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
