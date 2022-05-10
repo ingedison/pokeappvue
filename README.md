@@ -105,8 +105,7 @@ export default defineComponent ({
       }
   }
 ```
-
-#####Lógica reutilizable 
+##### Lógica reutilizable 
 
 Se toma como ejemplo el archivo /logic/data.js, contiene los metodos para el procesamiento del array obtenido de la pokeApi vía http request. 
 
@@ -168,4 +167,43 @@ export function fetchapi(){
         store,...toRefs(state)
     }
 ```
+#####Almacenes de datos
 
+Se realiza mediante el uso y la definición de PiniaStores, basados en la librería de pinia vue, a continuación se detalla el proceso de implementación utilizando un fragmento de código en typescript
+
+```js
+import { defineStore } from "pinia";
+import {ref, computed, watch} from "vue"
+import { useStorage } from "@vueuse/core" //opcional el uso de almacenamiento de stores en el localstorage
+
+export const dataStore = defineStore({
+  id: "data", 
+  state: () => ({
+    data: ref('', []).value, //se crea un array llamado data
+    persist: useStorage('persist', "true"), //persite en el navegador gracias a localstorage
+  }
+  ),
+  getters: {
+    //implementación de funciones para recuperar la data contenida en el store
+    getData: (state) => {state.data},
+    getTestString: (state) => {state.teststring}
+  },
+  actions: {
+      fill(array){ //definición de metodos asociados al store
+           Array.prototype.push.apply(this.data, array)
+      }
+  },
+  /*definición de localstorage*/
+  persist:{    key: 'data',
+  storage: window.sessionStorage,
+  paths: ['nested.data'],
+  beforeRestore: context => {
+    console.log('Before hydration...')
+  },
+  afterRestore: context => {
+    console.log('After hydration...')
+  }
+},
+});
+
+```
